@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title Manager Dashboard - Young4ChickS
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    // Bootstrap CSS
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css", rel="stylesheet")
+    link(rel="stylesheet", href="/public/custReg.css")
+  body
+    // 🔵 Navbar
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+      .container-fluid
+        a.navbar-brand(href="#") Young4ChickS - Manager
+        .d-flex
+          a.btn.btn-outline-light(href="/logout") Logout
+    // 📊 Dashboard
+    .container.dashboard-container
+      h2.my-4.text-center Manager Dashboard
+      .row.g-4
+        // ✅ Approve Requests
+        .col-md-6
+          a.text-decoration-none.text-dark(href="/manager/approvals")
+            .card.card-hover.border-0.shadow-sm
+              .card-body.text-center
+                h5.card-title Approve Requests
+                p.card-text Review and approve feed or chick requests submitted by farmers.
+                button.btn.btn-primary Go to Approvals
+        // 👤 Manage Users
+        .col-md-6
+          a.text-decoration-none.text-dark(href="/manager/users")
+            .card.card-hover.border-0.shadow-sm
+              .card-body.text-center
+                h5.card-title Manage Users
+                p.card-text View, update, or remove farmers and sales agents from the system.
+                button.btn.btn-primary Go to User Management

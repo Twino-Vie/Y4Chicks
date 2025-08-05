@@ -1,0 +1,105 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title Feeds & Orders | Young4ChickS
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css", rel="stylesheet")
+    link(rel="stylesheet", href="/custReg.css")
+  body
+    // Navbar
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-success.sticky-top
+      .container-fluid
+        a.navbar-brand.fw-bold(href="#") Young4ChickS - Agent
+        button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarNav")
+          span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav.ms-auto
+            li.nav-item
+              a.nav-link(href="/feedsrequest") Request Feed
+            li.nav-item
+              a.nav-link.active(href="/feedstock") View Orders
+
+    // Container
+    .container.mt-5
+      h2.text-success.fw-bold 📦 Feed Stock & Orders
+
+      // Inventory Table
+      h5.fw-semibold.text-secondary Current Feed Inventory (bags)
+      table.table.table-bordered.mb-5
+        thead.table-light
+          tr
+            th Feed Type
+            th Quantity in Stock
+            th Action
+        tbody#feedStockTable
+          tr
+            td Finisher
+            td 20
+            td
+              button.btn.btn-sm.btn-primary(type="button", onclick="openEditModal('Finisher', 20)") Update
+          tr
+            td Grower
+            td 20
+            td
+              button.btn.btn-sm.btn-primary(type="button", onclick="openEditModal('Grower', 20)") Update
+          tr
+            td Layer Mash
+            td 20
+            td
+              button.btn.btn-sm.btn-primary(type="button", onclick="openEditModal('Layer Mash', 20)") Update
+          tr
+            td Starter
+            td 20
+            td
+              button.btn.btn-sm.btn-primary(type="button", onclick="openEditModal('Starter', 20)") Update
+
+      // Orders Table
+      h5.fw-semibold.text-secondary 📋 Recent Feed Orders
+      .table-responsive
+        table.table.table-bordered.table-hover
+          thead.table-success
+            tr
+              th Farmer Name
+              th Phone
+              th Feed Type
+              th Quantity
+              th Unit Cost
+              th Total Cost
+              th Payment Method
+              th Request Date
+              th Status
+              th Action
+          tbody#feedOrdersTable
+            // Orders rows populated by JS
+          tfoot
+            tr
+              td(colspan="10")
+                label.fw-semibold.me-2 🔍 Filter by Status:
+                select#statusFilter.form-select.d-inline.w-auto(onchange="applyFilter()")
+                  option(value="All") All
+                  option(value="Pending") Pending
+                  option(value="Approved") Approved
+                  option(value="Cancelled") Cancelled
+
+    // Edit Feed Stock Modal
+    #editFeedModal.modal.fade(tabindex="-1", aria-labelledby="editFeedModalLabel", aria-hidden="true")
+      .modal-dialog
+        form.modal-content(onsubmit="submitStockUpdate(event)")
+          .modal-header
+            h5#editFeedModalLabel.modal-title Update Feed Stock
+            button.btn-close(type="button", data-bs-dismiss="modal")
+          .modal-body
+            input#editFeedId(type="hidden")
+            .mb-3
+              label.form-label Feed Type
+              input#editFeedType.form-control(type="text", readonly)
+            .mb-3
+              label.form-label New Quantity (bags)
+              input#editFeedQuantity.form-control(type="number", min="0", required)
+          .modal-footer
+            button.btn.btn-success(type="submit") Save Changes
+            button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Cancel
+
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js")
+    script(src="/feedstock.js")

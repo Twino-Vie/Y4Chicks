@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sales Agent Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/public/custReg.css">
+
+</head>
+
+<body>
+    <!--
+This section displays a welcome message for sales agents registering into the Young4ChickS platform.
+It includes a friendly greeting, outlines the agent's role, and states the organization’s vision and mission.
+This helps orient the agent and encourage meaningful registration.
+-->
+
+    <h1 class="text-center text-success mb-3">Welcome to the Sales Agent Registration</h1>
+    <p class="form-label text-center mb-4">
+        Thank you for joining the Young4ChickS mission to support and empower poultry farmers across the country.
+        As a sales agent, you play a vital role in connecting farmers to high-quality chicks, feeds, and expert
+        guidance.
+
+        <br><strong>Our Vision:</strong> To be a leading force in transforming poultry farming in Uganda by building a
+        sustainable and farmer-centered supply chain.
+
+        <br><strong>Our Mission:</strong> To deliver affordable, healthy chicks and poultry inputs while creating
+        meaningful opportunities for youth and rural communities through sales and service.
+
+        <br>Please fill in the form below to begin your journey as a Young4ChickS sales agent. Together, we grow!
+    </p>
+
+    <div class="form-container">
+        <h2 class="text-center mb-4">Sales Agent Registration</h2>
+
+        <form id="salesAgentForm">
+            <div class="mb-3">
+                <label for="agentName" class="form-label">Full Name</label>
+                <input type="text" id="agentName" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="agentPhone" class="form-label">Phone Number</label>
+                <input type="tel" id="agentPhone" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="agentID" class="form-label">National ID Number</label>
+                <input type="text" id="agentID" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="district" class="form-label">District Assigned</label>
+                <input type="text" id="district" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email (optional)</label>
+                <input type="email" id="email" class="form-control">
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-success">Register</button>
+            </div>
+
+        </form>
+    </div>
+
+
+</body>
+
+</html>

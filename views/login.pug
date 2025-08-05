@@ -1,0 +1,85 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title Login - Young4ChickS
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    // Bootstrap CSS
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css", rel="stylesheet")
+    link(rel="stylesheet", href="../public/custReg.css")
+  body
+    // 🧭 Dynamic Navbar
+    nav#roleNavbar.navbar.navbar-expand-lg.navbar-dark.bg-primary.d-none
+      .container-fluid
+        a.navbar-brand(href="#") Young4ChickS
+        .collapse.navbar-collapse
+          ul#navbarLinks.navbar-nav.me-auto.mb-2.mb-lg-0
+          button.btn.btn-outline-light Logout
+    // 🔐 Login Form
+    .container
+      .login-box
+        h2.text-center.mb-4 Login to Young4ChickS
+        form(action="/login", method="POST")
+          // Email
+          .mb-3
+            label.form-label(for="email") Email address
+            input#email.form-control(type="email", name="email", required)
+          // Password
+          .mb-3
+            label.form-label(for="password") Password
+            input#password.form-control(type="password", name="password", required)
+          // Confirm Password
+          .mb-3
+            label.form-label(for="confirmPassword") Confirm Password
+            input#confirmPassword.form-control(type="password", name="confirmPassword", required)
+          // Role Selection
+          .mb-4
+            label.form-label(for="role") Select Role
+            select#roleSelect.form-select(name="role", required)
+              option(value=, selected, disabled) Choose role
+              option(value="farmer") Farmer
+              option(value="sales") Sales Agent
+              option(value="manager") Manager
+          // Submit Button
+          button.btn.btn-primary.w-100(type="submit") Login
+          // Register Link
+          p.text-center.mt-3
+            | New here?
+            a(href="/register") Register here
+    // 🧠 JS for Role-Based Navbar
+    script.
+      const roleSelect = document.getElementById('roleSelect');
+      const navbar = document.getElementById('roleNavbar');
+      const navbarLinks = document.getElementById('navbarLinks');
+      
+      const navItems = {
+      farmer: [
+      { text: 'Dashboard', href: '/farmer/dashboard' },
+      { text: 'Request Chicks', href: '/farmer/chick-request' },
+      { text: 'Request Feeds', href: '/farmer/feed-request' }
+      ],
+      sales: [
+      { text: 'Sales Dashboard', href: '/sales/dashboard' },
+      { text: 'Register Order', href: '/sales/orders' },
+      { text: 'Farmer Feedback', href: '/sales/feedback' }
+      ],
+      manager: [
+      { text: 'Manager Dashboard', href: '/manager/dashboard' },
+      { text: 'Approve Requests', href: '/manager/approvals' },
+      { text: 'Manage Users', href: '/manager/users' }
+      ]
+      };
+      
+      roleSelect.addEventListener('change', function () {
+      const selectedRole = this.value;
+      navbar.classList.remove('d-none');
+      navbarLinks.innerHTML = '';
+      
+      navItems[selectedRole].forEach(item => {
+      const li = document.createElement('li');
+      li.classList.add('nav-item');
+      li.innerHTML = `<a class="nav-link text-white" href="${item.href}">${item.text}</a>`;
+      navbarLinks.appendChild(li);
+      });
+      });
+

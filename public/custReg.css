@@ -1,0 +1,127 @@
+body {
+    background: linear-gradient(to right, #f5f5dc, #f0fff0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-card {
+    background-color: #ecf2ef;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+}
+
+.form-title {
+    font-weight: bold;
+    color: #2c7a7b;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #3f3f3f;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #2c7a7b;
+    box-shadow: 0 0 8px rgba(44, 122, 123, 0.3);
+}
+
+.btn-success {
+    background-color: #2c7a7b;
+    border: none;
+    font-weight: bold;
+}
+
+.btn-success:hover {
+    background-color: #319795;
+}
+
+.success {
+    color: #2c7a7b;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form-wrapper {
+    max-width: 650px;
+    margin: 50px auto;
+    background: #c3efdd;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header {
+    padding: 30px 0;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #198754;
+    font-weight: bold;
+    border-bottom: 3px solid #198754;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.table th,
+.table td {
+    vertical-align: middle !important;
+}
+
+.badge {
+    font-size: 0.9em;
+    padding: 0.5em 0.75em;
+    border-radius: 0.5em;
+}
+
+.btn-sm {
+    font-size: 0.75rem;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f0fdf4;
+}
+
+.table thead th {
+    background-color: #e6f4ea;
+    color: #198754;
+}
+
+.filter-select {
+    max-width: 200px;
+    margin-left: auto;
+}
+
+.login-box {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgb(172, 244, 215);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container {
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+.card-hover:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
+    transition: 0.3s ease;
+}

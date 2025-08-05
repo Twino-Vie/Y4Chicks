@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Young4ChickS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../public/custReg.css">
+</head>
+
+<body>
+
+    <!-- 🧭 Dynamic Navbar -->
+    <nav id="roleNavbar" class="navbar navbar-expand-lg navbar-dark bg-primary d-none">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Young4ChickS</a>
+            <div class="collapse navbar-collapse">
+                <ul id="navbarLinks" class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+                <button class="btn btn-outline-light">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🔐 Login Form -->
+    <div class="container">
+        <div class="login-box">
+            <h2 class="text-center mb-4">Login to Young4ChickS</h2>
+
+            <form action="/login" method="POST">
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" name="email" class="form-control" id="email" required>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" required>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" required>
+                </div>
+
+                <!-- Role Selection -->
+                <div class="mb-4">
+                    <label for="role" class="form-label">Select Role</label>
+                    <select class="form-select" name="role" id="roleSelect" required>
+                        <option value="" selected disabled>Choose role</option>
+                        <option value="farmer">Farmer</option>
+                        <option value="sales">Sales Agent</option>
+                        <option value="manager">Manager</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+
+                <!-- Register Link -->
+                <p class="text-center mt-3">
+                    New here? <a href="/register">Register here</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- 🧠 JS for Role-Based Navbar -->
+    <script>
+        const roleSelect = document.getElementById('roleSelect');
+        const navbar = document.getElementById('roleNavbar');
+        const navbarLinks = document.getElementById('navbarLinks');
+
+        const navItems = {
+            farmer: [
+                { text: 'Dashboard', href: '/farmer/dashboard' },
+                { text: 'Request Chicks', href: '/farmer/chick-request' },
+                { text: 'Request Feeds', href: '/farmer/feed-request' }
+            ],
+            sales: [
+                { text: 'Sales Dashboard', href: '/sales/dashboard' },
+                { text: 'Register Order', href: '/sales/orders' },
+                { text: 'Farmer Feedback', href: '/sales/feedback' }
+            ],
+            manager: [
+                { text: 'Manager Dashboard', href: '/manager/dashboard' },
+                { text: 'Approve Requests', href: '/manager/approvals' },
+                { text: 'Manage Users', href: '/manager/users' }
+            ]
+        };
+
+        roleSelect.addEventListener('change', function () {
+            const selectedRole = this.value;
+            navbar.classList.remove('d-none');
+            navbarLinks.innerHTML = '';
+
+            navItems[selectedRole].forEach(item => {
+                const li = document.createElement('li');
+                li.classList.add('nav-item');
+                li.innerHTML = `<a class="nav-link text-white" href="${item.href}">${item.text}</a>`;
+                navbarLinks.appendChild(li);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
